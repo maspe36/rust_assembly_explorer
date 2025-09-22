@@ -1,4 +1,4 @@
-package com.github.maspe36.compilerexplorerrs.startup
+package com.compilerexplorer.rs.startup
 
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project

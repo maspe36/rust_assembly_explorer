@@ -1,9 +1,9 @@
-package com.github.maspe36.compilerexplorerrs.services
+package com.compilerexplorer.rs.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.github.maspe36.compilerexplorerrs.MyBundle
+import com.compilerexplorer.rs.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {

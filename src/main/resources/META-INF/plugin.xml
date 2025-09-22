@@ -1,6 +1,6 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.maspe36.compilerexplorerrs</id>
+    <id>com.compilerexplorer.rs</id>
     <name>compiler_explorer_rs</name>
     <vendor>maspe36</vendor>
 
@@ -9,7 +9,7 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.maspe36.compilerexplorerrs.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.maspe36.compilerexplorerrs.startup.MyProjectActivity" />
+        <toolWindow factoryClass="com.compilerexplorer.rs.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <postStartupActivity implementation="com.compilerexplorer.rs.startup.MyProjectActivity" />
     </extensions>
 </idea-plugin>

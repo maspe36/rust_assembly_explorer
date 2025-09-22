@@ -1,4 +1,4 @@
-package com.github.maspe36.compilerexplorerrs
+package com.compilerexplorer.rs
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
