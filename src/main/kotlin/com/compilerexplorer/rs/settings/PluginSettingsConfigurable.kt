@@ -1,5 +1,6 @@
 package com.compilerexplorer.rs.settings
 
+import com.compilerexplorer.rs.common.Bundle
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.util.NlsContexts
 import javax.swing.JComponent
@@ -8,7 +9,7 @@ class PluginSettingsConfigurable : Configurable {
     private var component_ = PluginSettingsComponent()
 
     override fun getDisplayName(): @NlsContexts.ConfigurableName String {
-        return "Compiler Explorer For Rust"
+        return Bundle.message("settings.configurable.name")
     }
 
     override fun createComponent(): JComponent {

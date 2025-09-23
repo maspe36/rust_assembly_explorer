@@ -6,19 +6,14 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.compilerexplorer.rs.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.compilerexplorer.rs.startup.MyProjectActivity" />
-    </extensions>
+    <resource-bundle>messages.CompilerExplorer</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable
                 parentId="tools"
                 instance="com.compilerexplorer.rs.settings.PluginSettingsConfigurable"
                 id="com.compilerexplorer.rs.settings.PluginSettingsConfigurable"
-                displayName="Compiler Explorer For Rust"/>
+                key="settings.configurable.name"/>
         <applicationService serviceImplementation="com.compilerexplorer.rs.settings.PluginSettings"/>
     </extensions>
 </idea-plugin>
