@@ -1,8 +1,8 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.compilerexplorer.rs</id>
-    <name>compiler_explorer_rs</name>
-    <vendor>maspe36</vendor>
+    <name>Compiler Explorer For Rust</name>
+    <vendor email="sam@privett.dev">Sam Privett</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
@@ -11,5 +11,14 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.compilerexplorer.rs.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
         <postStartupActivity implementation="com.compilerexplorer.rs.startup.MyProjectActivity" />
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.compilerexplorer.rs.settings.PluginSettingsConfigurable"
+                id="com.compilerexplorer.rs.settings.PluginSettingsConfigurable"
+                displayName="Compiler Explorer For Rust"/>
+        <applicationService serviceImplementation="com.compilerexplorer.rs.settings.PluginSettings"/>
     </extensions>
 </idea-plugin>
