@@ -1,19 +1,19 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.compilerexplorer.rs</id>
+    <id>com.rust_assembly_explorer</id>
     <name>Compiler Explorer For Rust</name>
     <vendor email="sam@privett.dev">Sam Privett</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.CompilerExplorer</resource-bundle>
+    <resource-bundle>messages.RustAssemblyExplorer</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable
                 parentId="tools"
-                instance="com.compilerexplorer.rs.settings.PluginSettingsConfigurable"
-                id="com.compilerexplorer.rs.settings.PluginSettingsConfigurable"
+                instance="com.rust_assembly_explorer.settings.PluginSettingsConfigurable"
+                id="com.rust_assembly_explorer.settings.PluginSettingsConfigurable"
                 key="settings.configurable.name"/>
-        <applicationService serviceImplementation="com.compilerexplorer.rs.settings.PluginSettings"/>
+        <applicationService serviceImplementation="com.rust_assembly_explorer.settings.PluginSettings"/>
     </extensions>
 </idea-plugin>

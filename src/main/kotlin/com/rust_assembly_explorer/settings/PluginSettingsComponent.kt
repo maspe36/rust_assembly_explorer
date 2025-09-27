@@ -1,4 +1,4 @@
-package com.compilerexplorer.rs.settings
+package com.rust_assembly_explorer.settings
 
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.ui.ComboBox

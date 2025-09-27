@@ -1,6 +1,6 @@
 # Compiler Explorer Rust Plugin
 
-![Build](https://github.com/maspe36/compiler_explorer_rs/workflows/Build/badge.svg)
+![Build](https://github.com/maspe36/rust_assembly_explorer/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
 

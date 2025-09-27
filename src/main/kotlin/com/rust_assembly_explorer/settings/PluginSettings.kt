@@ -1,10 +1,10 @@
-package com.compilerexplorer.rs.settings
+package com.rust_assembly_explorer.settings
 
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 
-@State(name = "com.compilerexplorer.rs.settings.PluginSettings", storages = [Storage("PluginSettings.xml")])
+@State(name = "com.rust_assembly_explorer.settings.PluginSettings", storages = [Storage("PluginSettings.xml")])
 class PluginSettings : PersistentStateComponent<PluginSettings.State> {
     class State {
         var url = URL_OPTIONS.get(0)

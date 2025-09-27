@@ -1,10 +1,10 @@
-package com.compilerexplorer.rs.common
+package com.rust_assembly_explorer.common
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.Nls
 import org.jetbrains.annotations.PropertyKey
 
-private const val BUNDLE = "messages.CompilerExplorer"
+private const val BUNDLE = "messages.RustAssemblyExplorer"
 
 object Bundle : DynamicBundle(BUNDLE) {
     @Nls

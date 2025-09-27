@@ -1,6 +1,6 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# compiler_explorer_rs Changelog
+# rust_assembly_explorer Changelog
 
 ## [Unreleased]
 ### Added

@@ -1,6 +1,6 @@
-package com.compilerexplorer.rs.settings
+package com.rust_assembly_explorer.settings
 
-import com.compilerexplorer.rs.common.Bundle
+import com.rust_assembly_explorer.common.Bundle
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.util.NlsContexts
 import javax.swing.JComponent
