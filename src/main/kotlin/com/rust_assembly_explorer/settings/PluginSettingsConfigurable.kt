@@ -13,19 +13,19 @@ class PluginSettingsConfigurable : Configurable {
     }
 
     override fun createComponent(): JComponent {
-        return component_.main_panel_
+        return component_.mainPanel
     }
 
     override fun isModified(): Boolean {
-        return component_.url_.editor.item.toString() != PLUGIN_SETTINGS.state.url
+        return component_.pathBar.text != PLUGIN_SETTINGS.state.path
     }
 
     override fun apply() {
-        PLUGIN_SETTINGS.state.url = component_.url_.editor.item.toString()
+        PLUGIN_SETTINGS.state.path = component_.pathBar.text
     }
 
     override fun reset() {
         val state = PLUGIN_SETTINGS.state
-        component_.url_.editor.item = state.url
+        component_.pathBar.text = state.path
     }
 }

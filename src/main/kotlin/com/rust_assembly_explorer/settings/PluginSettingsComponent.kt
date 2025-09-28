@@ -1,46 +1,39 @@
 package com.rust_assembly_explorer.settings
 
-import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.openapi.ui.ComboBox
+import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
+import com.intellij.openapi.ui.TextBrowseFolderListener
+import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.ui.components.JBLabel
 import com.intellij.util.ui.FormBuilder
 import java.awt.Dimension
 import javax.swing.Box
 import javax.swing.BoxLayout
-import javax.swing.JButton
 import javax.swing.JPanel
 
-
-val URL_OPTIONS = arrayOf("http://localhost:10240", "https://godbolt.org", "https://compiler-explorer.org")
-
+// TODO (SP) clean up the UI messages. These are wonky, I need some consistent
+// TODO (SP) Provide better UX feedback if the tool isn't found?
 class PluginSettingsComponent {
-    val url_ = ComboBox(URL_OPTIONS).apply {
-        isEditable = true
-        maximumSize = Dimension(Int.MAX_VALUE, preferredSize.height) // allow horizontal growth
+    val pathBar = TextFieldWithBrowseButton().apply {
+        addBrowseFolderListener(
+            TextBrowseFolderListener(
+                FileChooserDescriptorFactory.createSingleFileDescriptor()
+                    .withTitle("Assembly Viewing Tool")
+                    .withDescription("Choose the path to your cargo-show-asm executable")
+            )
+        )
     }
-    var test_connection_ = JButton("Test Connection")
 
-    private val url_row_ = JPanel().apply {
+    private val pathRow = JPanel().apply {
         layout = BoxLayout(this, BoxLayout.X_AXIS)
 
-        add(JBLabel("Compiler Explorer URL:"))
+        add(JBLabel("Path:"))
         add(Box.createRigidArea(Dimension(5, 0))) // small gap
 
-        add(url_)
-        add(Box.createRigidArea(Dimension(5, 0))) // small gap
-
-        add(test_connection_)
+        add(pathBar)
     }
 
-    val main_panel_ = FormBuilder.createFormBuilder()
-        .addComponent(url_row_)
+    val mainPanel = FormBuilder.createFormBuilder()
+        .addComponent(pathRow)
         .addComponentFillVertically(JPanel(), 0)
         .getPanel()
-
-    init {
-        test_connection_.addActionListener {
-            // Make a call to the URL to verify that compiler explorer is available
-            thisLogger().warn("Testing connection to \"${url_.editor.item}\"...")
-        }
-    }
 }

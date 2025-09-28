@@ -7,7 +7,7 @@ import com.intellij.openapi.components.Storage
 @State(name = "com.rust_assembly_explorer.settings.PluginSettings", storages = [Storage("PluginSettings.xml")])
 class PluginSettings : PersistentStateComponent<PluginSettings.State> {
     class State {
-        var url = URL_OPTIONS.get(0)
+        var path = "${System.getenv("HOME")}/.cargo/bin/cargo-asm"
     }
 
     private var state_ = State()
