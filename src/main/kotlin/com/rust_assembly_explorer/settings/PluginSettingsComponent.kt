@@ -10,7 +10,7 @@ import javax.swing.Box
 import javax.swing.BoxLayout
 import javax.swing.JPanel
 
-// TODO (SP) clean up the UI messages. These are wonky, I need some consistent
+// TODO (SP) clean up the UI messages. These are wonky, I need some consistency
 // TODO (SP) Provide better UX feedback if the tool isn't found?
 class PluginSettingsComponent {
     val pathBar = TextFieldWithBrowseButton().apply {

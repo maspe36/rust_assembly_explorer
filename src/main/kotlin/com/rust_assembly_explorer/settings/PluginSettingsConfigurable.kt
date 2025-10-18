@@ -6,26 +6,26 @@ import com.intellij.openapi.util.NlsContexts
 import javax.swing.JComponent
 
 class PluginSettingsConfigurable : Configurable {
-    private var component_ = PluginSettingsComponent()
+    private var component = PluginSettingsComponent()
 
     override fun getDisplayName(): @NlsContexts.ConfigurableName String {
-        return Bundle.message("settings.configurable.name")
+        return Bundle.message("plugin.name")
     }
 
     override fun createComponent(): JComponent {
-        return component_.mainPanel
+        return component.mainPanel
     }
 
     override fun isModified(): Boolean {
-        return component_.pathBar.text != PLUGIN_SETTINGS.state.path
+        return component.pathBar.text != PLUGIN_SETTINGS.state.path
     }
 
     override fun apply() {
-        PLUGIN_SETTINGS.state.path = component_.pathBar.text
+        PLUGIN_SETTINGS.state.path = component.pathBar.text
     }
 
     override fun reset() {
         val state = PLUGIN_SETTINGS.state
-        component_.pathBar.text = state.path
+        component.pathBar.text = state.path
     }
 }

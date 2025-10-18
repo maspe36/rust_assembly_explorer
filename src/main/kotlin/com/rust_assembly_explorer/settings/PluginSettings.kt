@@ -4,20 +4,20 @@ import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 
-@State(name = "com.rust_assembly_explorer.settings.PluginSettings", storages = [Storage("PluginSettings.xml")])
+@State(name = "com.rust_assembly_explorer.settings.PluginSettings", storages = [Storage("RustAssemblyExplorer.xml")])
 class PluginSettings : PersistentStateComponent<PluginSettings.State> {
     class State {
         var path = "${System.getenv("HOME")}/.cargo/bin/cargo-asm"
     }
 
-    private var state_ = State()
+    private var state = State()
 
     override fun getState(): State {
-        return state_
+        return state
     }
 
-    override fun loadState(state: State) {
-        state_ = state
+    override fun loadState(s: State) {
+        state = s
     }
 }
 

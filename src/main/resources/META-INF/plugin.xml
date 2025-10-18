@@ -5,15 +5,28 @@
     <vendor email="sam@privett.dev">Sam Privett</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.jetbrains.rust</depends>
 
     <resource-bundle>messages.RustAssemblyExplorer</resource-bundle>
+
+    <projectListeners>
+        <listener
+                class="com.rust_assembly_explorer.common.CargoCommandListener"
+                topic="com.intellij.execution.ExecutionListener"/>
+    </projectListeners>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable
                 parentId="tools"
                 instance="com.rust_assembly_explorer.settings.PluginSettingsConfigurable"
                 id="com.rust_assembly_explorer.settings.PluginSettingsConfigurable"
-                key="settings.configurable.name"/>
+                key="plugin.name"/>
         <applicationService serviceImplementation="com.rust_assembly_explorer.settings.PluginSettings"/>
+
+        <toolWindow
+                id="Rust Assembly Explorer"
+                icon="/icons/RustAssemblyExplorer.svg"
+                anchor="right"
+                factoryClass="com.rust_assembly_explorer.tool_window.ExplorerToolWindowFactory"/>
     </extensions>
 </idea-plugin>
