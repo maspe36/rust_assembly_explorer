@@ -7,25 +7,21 @@ import com.intellij.execution.process.ProcessOutput
 import com.intellij.execution.runners.ExecutionEnvironment
 import com.intellij.execution.util.ExecUtil
 import com.intellij.openapi.components.*
-import com.intellij.openapi.components.State
 import com.intellij.openapi.project.Project
 import com.intellij.platform.ide.progress.withBackgroundProgress
 import com.rust_assembly_explorer.CommandLineModelService
 import com.rust_assembly_explorer.settings.PLUGIN_SETTINGS
+import com.rust_assembly_explorer.tool_window.ExplorerToolWindowService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.rust.cargo.runconfig.command.CargoCommandConfiguration
 
 
 @Service(Service.Level.PROJECT)
-@State(
-    name = "com.rust_assembly_explorer.common.cargo",
-    storages = [Storage("RustAssemblyExplorer.xml")]
-)
-class CargoAsmService(private val project: Project, private val cs: CoroutineScope) :
-    PersistentStateComponent<CargoAsmService.State> {
-
+class CargoAsmService(private val project: Project, private val cs: CoroutineScope) {
     private val cliModelService = CommandLineModelService.getInstance(project)
+    private val toolWindowService = ExplorerToolWindowService.getInstance(project)
+
 
     data class State(
         var cachedSymbols: MutableMap<String, String> = mutableMapOf(),
@@ -34,15 +30,9 @@ class CargoAsmService(private val project: Project, private val cs: CoroutineSco
 
     private var state = State()
 
-    override fun getState(): State = state
-
-    override fun loadState(loadedState: State) {
-        state = loadedState
-    }
-
     fun run() {
         cs.launch {
-            withBackgroundProgress(project, "Running Cargo ASM") {
+            withBackgroundProgress(project, "Running `cargo asm`") {
                 // TODO (SP) Parse the UI elements to build the command line args? Does that live in the service?
                 val commandLine = GeneralCommandLine(PLUGIN_SETTINGS.state.path)
                     .withWorkDirectory(project.basePath)
@@ -63,6 +53,8 @@ class CargoAsmService(private val project: Project, private val cs: CoroutineSco
 
                     // TODO (SP) Display this output in a new UI window
                     state.output = processOutput.stdout
+
+                    toolWindowService.updateAssemblyOutput(processOutput.stdout)
                 } else {
                     println("Cargo ASM failed with exit code: ${processOutput.exitCode}")
                     println("Error output:\n${processOutput.stderr}")

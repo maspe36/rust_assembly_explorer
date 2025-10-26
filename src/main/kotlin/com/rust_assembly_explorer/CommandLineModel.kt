@@ -4,12 +4,17 @@ import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
 
 data class CommandLineModel(
-    var output: OutputType = OutputType.ASM
+    var output: OutputType = OutputType.ASM,
+    var target: String = ""
 ) {
     fun toArgs(): List<String> = buildList {
         add("--rust")
         add("--include-constants")
         add("--everything")
+
+        add("--target")
+        add(target)
+
         add(output.toArg())
     }
 }
